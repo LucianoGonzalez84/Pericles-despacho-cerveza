@@ -1,0 +1,121 @@
+.detailcontainer{
+    width: 90%;
+    height: 300px;
+    margin: 100px auto 0 auto;
+
+}
+
+.detailcontainer__nombre{
+    font-family: var(--secundaria);
+    font-size: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 50px;
+    border-bottom: 1px solid var(--negro);
+}
+
+.detailcontainer__info {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    border-bottom: 1px solid var(--negro);
+    
+}
+
+.detailcontainer__info div{
+    width: 50%;
+    height: 100%;
+}
+
+.info__img{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.info__img img{
+    width: 300px;
+}
+
+.info__info{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+    width: 100%;
+    height: 100%;
+}
+
+.info__info div{
+    width: 100%;
+    height: 28px;
+    display: flex;
+}
+
+.info__info div div{
+    display: flex;
+    justify-content: center;
+}
+
+
+.info__info div div .btn{
+    width: 200px;
+    height: 100%;
+    font-family: var(--secundaria);
+    font-size: 18px;
+}
+
+.info__precio{
+    font-family: var(--negro);
+    font-size: 23px;
+    font-weight: 700;
+    
+}
+
+.info__descripcion{
+    font-family: var(--negro);
+    font-size: 17px;
+    font-weight: 400;
+    text-transform: none;
+}
+
+.info__contador{
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.contador{
+    width: 80%;
+    height: 28px;
+    display: flex;
+    
+}
+
+.contador__btn{
+    display: flex;
+    align-self: center;
+    justify-content: center;
+    background-color: var(--blanco);
+    border-radius: 0;
+    border: 1px solid var(--negro);
+    width: 28px;
+    height: 28px;
+    cursor: pointer;
+    font-family: var(--secundaria);
+    font-size: 23px;
+    font-weight: 400;
+    transition: all 400ms;
+}
+
+.contador__btn:hover{
+    background-color: var(--negro);
+    color: var(--blanco);
+}
+
+.contador__cantidad{
+    font-family: var(--secundaria);
+    font-size: 23px;
+    font-weight: 400;
+    width: 50px;
+}
