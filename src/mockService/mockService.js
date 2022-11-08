@@ -57,6 +57,50 @@ const productsDataBase =
                 "descripcion": "Un balance equilibrado, con caracteres tostados y sutil afrutado de fermentación con aromas cálidos y tostados de café y caramelo. Una cerveza negra distintiva y con cuerpo, con una rica y cremosa espuma.",
                 "imagen": "./img/cervezas/guinnessextrastout.png",
             },
+            {
+                "id": 6,
+                "nombre": "Antares Scotch",
+                "estilo": "Roja",
+                "tamaño": "473 ml",
+                "ibu": "18 IBU",
+                "alcohol": "6,0 %",
+                "precio": "367,00",
+                "descripcion": "Escocia es tierra de cebada y la Scotch Ale lleva ese paisaje impregnado en su código genético. Rubí intenso. Seis grados de alcohol. Dulce y maltosa. La Antares más servida en nuestro Brewpub. Una fórmula a prueba del paso del tiempo.",
+                "imagen": "./img/cervezas/antaresscotch.png",
+            },
+            {
+                "id": 7,
+                "nombre": "Bavaria 8.6 Red",
+                "estilo": "Roja",
+                "tamaño": "500 ml",
+                "ibu": "18 IBU",
+                "alcohol": "7,9 %",
+                "precio": "606,00",
+                "descripcion": "Esta cerveza roja oscura es dulce. Una cerveza con un aroma complejo de granos y caramelo y un final agridulce en el que persiste el alto porcentaje de alcohol.",
+                "imagen": "./img/cervezas/bavaria8.6red.png",
+            },
+            {
+                "id": 8,
+                "nombre": "Cusqueña Red",
+                "estilo": "Roja",
+                "tamaño": "330 ml",
+                "ibu": "25 IBU",
+                "alcohol": "5,0 %",
+                "precio": "514,00",
+                "descripcion": "Cusqueña Red Lager es una edición especial creada para los paladares más exigentes, con un color rojizo-dorado, resultado de la combinación perfecta de maltas cuidadosamente seleccionadas y el proceso natural de tostar la cebada.",
+                "imagen": "./img/cervezas/cusqueñared.png",
+            },
+            {
+                "id": 9,
+                "nombre": "Erdinger Dunker",
+                "estilo": "Roja",
+                "tamaño": "500 ml",
+                "ibu": "14 IBU",
+                "alcohol": "5,6 %",
+                "precio": "964,00",
+                "descripcion": "La Erdinger Weissbier Dunkel es una cerveza de trigo de color marrón oscuro de abundante espuma de color crema de duración media y de burbujas finas y suaves, con un 5,6% de alcohol en volumen, su aroma destaca por las notas a malta tostada.",
+                "imagen": "./img/cervezas/erdingerdunkel.png",
+            },
 
         ];
 
@@ -69,7 +113,6 @@ export default function getProductsFromDataBase() {
 };
 
 export function getSingleProductFromDataBase(idParams) {
-
     return new Promise((resolve, reject) => {
         setTimeout(() => {
             let productsRequested = productsDataBase.find(
