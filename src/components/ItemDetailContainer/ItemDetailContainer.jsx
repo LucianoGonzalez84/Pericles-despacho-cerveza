@@ -16,6 +16,7 @@ function ItemDetailContainer() {
         getSingleProductFromDataBase(id).then((productsDataBase) => {
             setProduct(productsDataBase);
         });
+    // eslint-disable-next-line react-hooks/exhaustive-deps
     }, []);
 
     return (

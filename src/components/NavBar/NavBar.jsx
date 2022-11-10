@@ -24,8 +24,16 @@ function NavBar() {
             <a href="#">Contacto</a>
           </ul>
         </div>
+        <div className="nav__estilos">
+          <Link to='/category/Ipa'>Ipa</Link>
+          <Link to='/category/Negra'>Negra</Link>
+          <Link to='/category/Roja'>Roja</Link>
+          <Link to='/category/Rubia'>Rubia</Link>
+          <Link to='/category/Sin Alcohol'>Sin Alcohol</Link>
+          <Link to='/category/Trigo'>Trigo</Link>
+        </div>
       </div>
-      <CartWidget className='cartwidget'/>
+      <CartWidget className='cartwidget' />
     </nav>
   );
 }
