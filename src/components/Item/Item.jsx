@@ -21,8 +21,8 @@ function Item(product) {
         {product.tamaño} │ {product.alcohol} │ {product.ibu}
       </p>
       <p className="card__precio">$ {product.precio}</p>
-      <Link className="btncontainer" to={urlDetail}>
-        <Button>Ver mas</Button>
+      <Link to={urlDetail}>
+        <Button className='card__btnadd'>Ver mas</Button>
       </Link>      
     </div>
   );

@@ -1,23 +1,33 @@
 import React, { useState } from "react";
+import Button from "../Button/Button";
 
-function Count() {
-  const [cantidad, setCantidad] = useState(0);
+function Count({ stock, handleAddToCart }) {
+  const [cantidad, setCantidad] = useState(1);
 
-  function decremento() {
+  function handleDecrement() {
     if (cantidad > 0) {
       setCantidad(cantidad - 1);
     }
   }
 
-  function incremento() {
-    setCantidad(cantidad + 1);
+  function handleIncrement() {
+    if (cantidad < stock) {
+      setCantidad(cantidad + 1);
+    }
   }
 
   return (
-    <div className="contador">        
-      <button className="contador__btn" onClick={decremento}>-</button>
-      <div className="contador__cantidad">{cantidad}</div>
-      <button className="contador__btn" onClick={incremento}>+</button>
+    <div className="containercount">
+      <div className="count">
+        <Button className="count__btn" onClick={handleDecrement}>
+          -
+        </Button>
+        <div className="count__amount">{cantidad}</div>
+        <Button className="count__btn" onClick={handleIncrement}>
+          +
+        </Button>
+      </div>
+      <Button onClick={() => handleAddToCart(cantidad)} className='count__btnadd'>Agregar</Button>
     </div>
   );
 }

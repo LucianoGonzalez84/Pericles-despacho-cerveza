@@ -6,8 +6,19 @@ import Item from '../Item/Item';
 import './itemlist.css'
 
 function ItemList(props) {
+    
+    let titulo="";
+    if (props.style===undefined) {
+        titulo = "Todas nuestras cervezas";
+    } else {
+        titulo = props.style
+    }
+    
     return (
         <div className='containeritemlist'>
+            <div className='title'>
+                <h1>{titulo}</h1>    
+            </div>            
             <FlexWrapper>
                 {props.productsList.map((product) => (
                     <Item
@@ -24,7 +35,6 @@ function ItemList(props) {
                 ))}
             </FlexWrapper>
         </div>
-
     )
 }
 

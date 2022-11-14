@@ -5,9 +5,8 @@
   --azul : #212935;
   --dorado: #fba001;
   /* Fuentes */
-  --enlaces : 'Montserrat', sans-serif;
-  --principal: 'Playfair Display', serif;
-  --secundaria: 'Inconsolata', monospace;
+  --principal: 'Dosis', sans-serif;
+  --secundaria: 'Source Sans Pro', sans-serif;
 }
 
 body {
@@ -18,6 +17,10 @@ body {
 
 img {
   max-width: 100%; 
+}
+
+a{
+  text-decoration: none;
 }
 
 

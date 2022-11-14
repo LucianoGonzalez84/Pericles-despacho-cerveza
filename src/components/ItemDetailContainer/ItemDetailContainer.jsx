@@ -9,24 +9,18 @@ import { useParams } from 'react-router-dom';
 function ItemDetailContainer() {
     const [product, setProduct] = useState([]);
     
-    let params = useParams();
-    let id = params.id;
+    let id = useParams().id;
 
     useEffect(() => {
         getSingleProductFromDataBase(id).then((productsDataBase) => {
             setProduct(productsDataBase);
-        });
+        })
+        .catch((error) => {console.log(error);})
     // eslint-disable-next-line react-hooks/exhaustive-deps
     }, []);
 
-    return (
-        <ItemDetail
-          nombre={product.nombre}
-          imagen={product.imagen}
-          precio={product.precio}
-          descripcion={product.descripcion}
-        />
-    )
+    return <ItemDetail product={product}/>;
+    
 }
 
 export default ItemDetailContainer;

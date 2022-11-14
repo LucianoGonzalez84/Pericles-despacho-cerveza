@@ -24,7 +24,7 @@ function ItemListContainer() {
   // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [styleid]);
 
-  return <ItemList productsList={productsList}/>;
+  return <ItemList style={styleid} productsList={productsList}/>;
     
 }
 
