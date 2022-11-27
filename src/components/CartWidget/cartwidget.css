@@ -1,0 +1,28 @@
+.cartwidget{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    color: var(--blanco);
+    cursor: pointer;
+    left: 90%;
+    width: auto;
+    height: 28px;
+}
+
+.cartwidget__icon{
+    transform: scale(1.4);
+    margin-right: 10px;
+}
+
+.cartwidget__count{
+    color: var(--blanco);
+    font-family: var(--enlaces);
+    font-size: 17px;
+    font-weight: 600;
+    text-transform: uppercase;
+}
+
+.cartwidget:hover{
+    color: var(--dorado);
+}

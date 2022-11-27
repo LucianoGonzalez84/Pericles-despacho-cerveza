@@ -5,7 +5,7 @@ function Count({ stock, handleAddToCart }) {
   const [cantidad, setCantidad] = useState(1);
 
   function handleDecrement() {
-    if (cantidad > 0) {
+    if (cantidad > 1) {
       setCantidad(cantidad - 1);
     }
   }

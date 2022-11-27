@@ -6,9 +6,9 @@ import { Link } from 'react-router-dom';
 // Estilos
 import "./item.css";
 
-function Item(product) {
+function Item({product}) {
 
-  let urlDetail = `/detalle/${product.Key}`;
+  let urlDetail = `/detalle/${product.id}`;
 
   return (
     <div className="card">
@@ -20,7 +20,7 @@ function Item(product) {
       <p className="card__info">
         {product.tamaño} │ {product.alcohol} │ {product.ibu}
       </p>
-      <p className="card__precio">$ {product.precio}</p>
+      <p className="card__precio">$ {product.precio}.00</p>
       <Link to={urlDetail}>
         <Button className='card__btnadd'>Ver mas</Button>
       </Link>      

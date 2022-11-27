@@ -1,15 +1,22 @@
-import React, { useState } from 'react';
-import Count from '../Count/Count';
+import React, { useState, useContext } from 'react';
+import ItemCount from '../ItemCount/ItemCount';
+import cartContext from '../../storage/CartContext';
+import { Link } from 'react-router-dom';
 
 // Estilos
 import './itemdetail.css';
 
 function ItemDetail({ product }) {
     const [isInCart, setIsInCart] = useState(false);
+    const { addItem } = useContext(cartContext);
 
-    function handleAddToCart(cantidad) {
-        alert(`Agregadas ${cantidad} unidades de ${product.nombre} al carrito`);
+    function handleAddToCart(quantity) {
+        const itemForCart = {
+            ...product,
+            quantity
+        }
         setIsInCart(true);
+        addItem(itemForCart);
     }
 
     return (
@@ -22,26 +29,28 @@ function ItemDetail({ product }) {
                     <img src={product.imagen} alt={product.nombre} />
                 </div>
                 <div className='info__info'>
-                    <p className='info__precio'>$ {product.precio}</p>
                     {!isInCart ? (
                         <>
+                            <p className='info__precio'>$ {product.precio}.00</p>
                             <div className='info__contador'>
-                                <Count handleAddToCart={handleAddToCart} stock={product.stock}></Count>
+                                <ItemCount handleAddToCart={handleAddToCart} stock={product.stock}></ItemCount>
                             </div>
                             <p className='info__stock'>* Stock disponible {product.stock} unidades</p>
+                            <p className='info__descripcion'>{product.descripcion}</p>
                         </>
                     ) : (
-                        <div className='info__contador'>
-                            <button className='btngotocart'>Ir al carrito</button>
+                        <div className='info__btns'>
+                            <Link to='/cart'><button className='btngotocart'>Ir al carrito</button></Link>
+                            <button className='btngotocart'>Quitar del carrito</button>
+                            <Link to='/'><button className='btngotocart'>Volver al catalogo</button></Link>
                         </div>
                     )
                     }
-                    <p className='info__descripcion'>{product.descripcion}</p>
+
                 </div>
             </div>
         </div>
-
     )
 }
 
-export default ItemDetail
+export default ItemDetail;

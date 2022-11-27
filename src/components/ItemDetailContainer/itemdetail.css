@@ -31,7 +31,7 @@
 }
 
 .info__img img{
-    width: 300px;
+    height: 299px;
 }
 
 .info__info{
@@ -163,4 +163,11 @@
     text-transform: none;
     height: 95px;
 } 
+
+.info__btns{
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    height: 100%;
+}
 

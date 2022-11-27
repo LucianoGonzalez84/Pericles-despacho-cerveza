@@ -1,36 +1,40 @@
 import React from 'react';
 import FlexWrapper from '../FlexWrapper/FlexWrapper';
 import Item from '../Item/Item';
+import Loading from '../Loading/Loading'
+
+
 
 // Estilos
 import './itemlist.css'
 
 function ItemList(props) {
-    
-    let titulo="";
-    if (props.style===undefined) {
+
+    let emptyarray = props.productsList.length === 0;
+    let titulo = "";
+
+    if (props.style === undefined) {
         titulo = "Todas nuestras cervezas";
     } else {
         titulo = props.style
     }
-    
+
     return (
+
         <div className='containeritemlist'>
-            <div className='title'>
-                <h1>{titulo}</h1>    
-            </div>            
             <FlexWrapper>
+                {
+                    emptyarray ?
+                        <Loading></Loading>
+                        :
+                        <div className='title'>
+                            <h1>{titulo}</h1>
+                        </div>
+                }
                 {props.productsList.map((product) => (
                     <Item
-                        Key={product.id}
-                        imagen={product.imagen}
-                        nombre={product.nombre}
-                        estilo={product.estilo}
-                        tamaño={product.tamaño}
-                        alcohol={product.alcohol}
-                        ibu={product.ibu}
-                        precio={product.precio}
-                        descripcion={product.descripcion}
+                        key={product.id}
+                        product={product}
                     />
                 ))}
             </FlexWrapper>
