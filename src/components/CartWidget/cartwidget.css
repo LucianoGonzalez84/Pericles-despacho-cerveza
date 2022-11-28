@@ -5,9 +5,10 @@
     position: absolute;
     color: var(--blanco);
     cursor: pointer;
-    left: 90%;
+    left: 88%;
     width: auto;
     height: 28px;
+    margin-top: -7px;
 }
 
 .cartwidget__icon{
@@ -20,7 +21,7 @@
     font-family: var(--enlaces);
     font-size: 17px;
     font-weight: 600;
-    text-transform: uppercase;
+    
 }
 
 .cartwidget:hover{

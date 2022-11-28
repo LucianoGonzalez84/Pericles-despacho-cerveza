@@ -9,7 +9,7 @@ import "./cartwidget.css";
 
 function CartWidget() {
 
-  const { totalItemsInCart } = useContext(cartContext);
+  const { totalItemsInCart, totalPriceInCart } = useContext(cartContext);
 
   return (
     <Link to='/cart'>
@@ -18,7 +18,7 @@ function CartWidget() {
           (totalItemsInCart() > 0) ?
             <>
               <FontAwesomeIcon className='cartwidget__icon' icon={faBeer} />
-              <small className='cartwidget__count'>( {totalItemsInCart()} )</small>
+              <small className='cartwidget__count'>( {totalItemsInCart()} / $ {(totalPriceInCart()).toFixed(2)} )</small>
             </>
             :
             <>

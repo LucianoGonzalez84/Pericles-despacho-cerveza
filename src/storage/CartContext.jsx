@@ -1,4 +1,5 @@
 import { useState, createContext } from "react";
+import Swal from 'sweetalert2';
 
 const cartContext = createContext();
 
@@ -9,8 +10,8 @@ export function CartContextProvider(props) {
         let itemFound = cart.find(itemInCart => itemInCart.id === itemData.id);
 
         if (itemFound) {
-            let newCart = cart.map ((itemInCart) => {
-                if (itemInCart.id === itemData.id){
+            let newCart = cart.map((itemInCart) => {
+                if (itemInCart.id === itemData.id) {
                     itemInCart.quantity += itemData.quantity;
                     return itemInCart;
                 } else {
@@ -19,11 +20,11 @@ export function CartContextProvider(props) {
             })
             setCart(newCart);
         }
-         else {
+        else {
             const newCart = [...cart];
             newCart.push(itemData);
             setCart(newCart);
-        }        
+        }
     }
 
     function totalItemsInCart() {
@@ -34,17 +35,53 @@ export function CartContextProvider(props) {
         return total;
     }
 
-    function totalPriceInCart(){
-        
+    function totalPriceInCart() {
+        let total = 0;
+
+        cart.forEach(itemInCart => {
+            total = total + (itemInCart.precio * itemInCart.quantity);
+        })
+        return total
+
+
     }
 
-    function removeItem(itemData){
-        
+    function removeItem(itemId) {
+        let newCart = cart.filter((itemInCart) => itemInCart.id !== itemId);
+        setCart(newCart);
 
+        // SweetAlert
+        let producto = cart.find((itemInCart) => itemInCart.id === itemId);
+        Swal.fire({
+            icon: 'success',
+            html: `<p>Se elimino <b><b><b>${producto.nombre}</b></b></b> del carrito</p>`,
+            timer: '2000',
+            showConfirmButton: false,
+        })
     }
 
-    function clear(){
-        
+    function clear() {
+        // SweetAlert
+        Swal.fire({
+            html: `<p>Queres vaciar el carrito?</p>`,
+            icon: 'warning',
+            showCancelButton: true,
+            confirmButtonColor: '#3085d6',
+            cancelButtonColor: '#d33',
+            confirmButtonText: 'Si',
+            cancelButtonText: 'No',            
+        }).then((result) => {
+            if (result.isConfirmed) {
+                Swal.fire({
+                    icon: 'success',
+                    html: '<p>El carrito se encuentra vacio</p>',
+                    timer: '2000',
+                    showConfirmButton: false,
+                })
+                let newCart = [];
+                setCart(newCart);
+            }
+        })
     }
 
     const value = {
