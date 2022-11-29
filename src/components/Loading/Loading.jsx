@@ -8,7 +8,7 @@ import './loading.css';
 function Loading() {
   return (
     <div className='spinner_container'>
-        <Spinner className='spinner' color='secundary'/>
+        <Spinner className='spinner' color='secondary'/>
     </div>    
   )
 }

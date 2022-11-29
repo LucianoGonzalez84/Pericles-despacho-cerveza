@@ -2,16 +2,44 @@ import React, { useContext } from 'react';
 import cartContext from '../../storage/CartContext';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faFaceFrown, faTrashCanArrowUp } from '@fortawesome/free-solid-svg-icons';
-import { Link } from 'react-router-dom';
-
-
+import { Link, useNavigate } from 'react-router-dom';
+import { createBuyOrderFirestore } from '../../firebase/firebase';
+import Swal from 'sweetalert2';
 
 // Estilos
 import "./cartview.css";
 
-
 function CartView() {
     const { cart, removeItem, clear, totalPriceInCart } = useContext(cartContext);
+    const navigate = useNavigate();
+
+    function createBuyOrder() {
+        const buyData = {
+            buyer: {
+                name: 'Rufina Gonzalez Lanciotti',
+                phone: 2216306661,
+                email: 'rufina@gmail.com'
+            },
+            items: cart,
+            total: totalPriceInCart(),
+            date: new Date(),
+        }
+
+        createBuyOrderFirestore(buyData).then(orderId => {
+            console.log(orderId);
+            clear();
+            // SweeAlert
+            Swal.fire({
+                icon: 'success',
+                html: `<p>Gracias por tu compra <b><b>${buyData.buyer.name}</b></b>. El identificador de tu orden es: <b><b>${orderId}</b></b><br><p>Click en OK para volver a la pagina principal</p>`,
+                confirmButtonText: 'OK',
+            }).then((result) => {
+                if (result.isConfirmed) {
+                    navigate('/');
+                }
+            })
+        });
+    }
 
     return (
         <div className='cartcontainer'>
@@ -58,11 +86,12 @@ function CartView() {
             </div>
             <div className='btns'>
                 <Link to='/'><button className='btn'>Seguir comprando</button></Link>
-                <button className={cart.length === 0 ? 'btnnull' : 'btn'} onClick={() => clear()}>Vaciar carrito</button>
-                <button className={cart.length === 0 ? 'btnnull' : 'btn'}>Finalizar compra</button>
+                <button className={cart.length === 0 ? 'btnnull' : 'btn'} onClick={cart.length === 0 ? null : () => clear()}>Vaciar carrito</button>
+                <button className={cart.length === 0 ? 'btnnull' : 'btn'} onClick={cart.length === 0 ? null : () => createBuyOrder()}>Finalizar compra</button>
             </div>
         </div>
     )
 }
 
 export default CartView
+

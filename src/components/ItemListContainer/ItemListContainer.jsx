@@ -1,8 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import ItemList from './ItemList';
-import getProductsFromDataBase, { getProductsFromDataBaseByStyle } from '../../mockService/mockService';
+import { getProductsFromDataBase, getProductsFromDataBaseByStyle } from '../../firebase/firebase';
 import { useParams } from 'react-router-dom';
-
 
 
 function ItemListContainer() {

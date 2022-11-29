@@ -61,29 +61,9 @@ export function CartContextProvider(props) {
     }
 
     function clear() {
-        // SweetAlert
-        Swal.fire({
-            html: `<p>Queres vaciar el carrito?</p>`,
-            icon: 'warning',
-            showCancelButton: true,
-            confirmButtonColor: '#3085d6',
-            cancelButtonColor: '#d33',
-            confirmButtonText: 'Si',
-            cancelButtonText: 'No',            
-        }).then((result) => {
-            if (result.isConfirmed) {
-                Swal.fire({
-                    icon: 'success',
-                    html: '<p>El carrito se encuentra vacio</p>',
-                    timer: '2000',
-                    showConfirmButton: false,
-                })
-                let newCart = [];
-                setCart(newCart);
-            }
-        })
+        setCart([])        
     }
-
+    
     const value = {
         cart,
         addItem,

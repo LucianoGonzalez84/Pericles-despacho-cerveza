@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import ItemDetail from './ItemDetail';
-import { getSingleProductFromDataBase } from '../../mockService/mockService';
+import { getSingleProductFromDataBase } from '../../firebase/firebase';
 import { useParams } from 'react-router-dom';
 import Loading from '../Loading/Loading';
 

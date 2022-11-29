@@ -184,7 +184,7 @@ p {
     width: 50%;
     display: flex;
     justify-content: space-evenly;
-    margin: 0 auto;
+    margin: 0 auto 35px auto;
 }
 
 .btn {

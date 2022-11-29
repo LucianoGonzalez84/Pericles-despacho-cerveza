@@ -3,8 +3,6 @@ import FlexWrapper from '../FlexWrapper/FlexWrapper';
 import Item from '../Item/Item';
 import Loading from '../Loading/Loading'
 
-
-
 // Estilos
 import './itemlist.css'
 

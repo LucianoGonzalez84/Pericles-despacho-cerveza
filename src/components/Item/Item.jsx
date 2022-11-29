@@ -2,7 +2,6 @@ import React from "react";
 import Button from "../Button/Button";
 import { Link } from 'react-router-dom';
 
-
 // Estilos
 import "./item.css";
 
