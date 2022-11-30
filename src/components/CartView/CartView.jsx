@@ -14,20 +14,15 @@ function CartView() {
     const { cart, removeItem, clear, totalPriceInCart } = useContext(cartContext);
     const navigate = useNavigate();
 
-    function createBuyOrder() {
+    function createBuyOrder(userData) {
         const buyData = {
-            buyer: {
-                name: 'Rufina Gonzalez Lanciotti',
-                phone: 2216306661,
-                email: 'rufina@gmail.com'
-            },
+            buyer: userData,
             items: cart,
             total: totalPriceInCart(),
             date: new Date(),
         }
 
         createBuyOrderFirestore(buyData).then(orderId => {
-            console.log(orderId);
             clear();
             // SweeAlert
             Swal.fire({
@@ -88,9 +83,9 @@ function CartView() {
             <div className='btns'>
                 <Link to='/'><button className='btn'>Seguir comprando</button></Link>
                 <button className={cart.length === 0 ? 'btnnull' : 'btn'} onClick={cart.length === 0 ? null : () => clear()}>Vaciar carrito</button>
-                <button className={cart.length === 0 ? 'btnnull' : 'btn'} onClick={cart.length === 0 ? null : () => createBuyOrder()}>Finalizar compra</button>
+                {/* <button className={cart.length === 0 ? 'btnnull' : 'btn'} onClick={cart.length === 0 ? null : () => createBuyOrder()}>Finalizar compra</button> */}
             </div>
-            <Form></Form>
+            <Form onSubmit={createBuyOrder}></Form>
         </div>
     )
 }
