@@ -1,10 +1,10 @@
 .nav{
     position: relative;
-    height: 70px;
+    height: 80px;
     width: 100%;
     background-color: var(--negro);
     font-family: var(--secundaria);
-    border-bottom: 5px solid var(--azul);
+    border-bottom: 5px solid var(--dorado);
     display: flex;
     align-items: center;
 }

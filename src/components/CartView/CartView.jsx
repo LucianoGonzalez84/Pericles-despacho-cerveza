@@ -5,6 +5,7 @@ import { faFaceFrown, faTrashCanArrowUp } from '@fortawesome/free-solid-svg-icon
 import { Link, useNavigate } from 'react-router-dom';
 import { createBuyOrderFirestore } from '../../firebase/firebase';
 import Swal from 'sweetalert2';
+import Form from '../Form/Form';
 
 // Estilos
 import "./cartview.css";
@@ -89,6 +90,7 @@ function CartView() {
                 <button className={cart.length === 0 ? 'btnnull' : 'btn'} onClick={cart.length === 0 ? null : () => clear()}>Vaciar carrito</button>
                 <button className={cart.length === 0 ? 'btnnull' : 'btn'} onClick={cart.length === 0 ? null : () => createBuyOrder()}>Finalizar compra</button>
             </div>
+            <Form></Form>
         </div>
     )
 }

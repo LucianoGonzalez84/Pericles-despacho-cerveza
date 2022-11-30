@@ -2,9 +2,9 @@
     display: flex;
     background-color: var(--negro);
     width: 100%;
-    height: 200px;
-    position: absolute;
-    top: 100%;
+    height: 150px;
+    position: relative;
+    border-top: 5px solid var(--dorado);
 }
 
 .footer__copyright{
@@ -30,7 +30,6 @@
 
 .footer__logo{
     display: flex;
-    background-color: blue;
     justify-content: center;
     align-items: center;
     width: 50%;
@@ -38,7 +37,22 @@
 
 .footer__logo img{
     width: 150px;
-    background-color: red;
+}
+
+.footer__logo div{
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+    height: 90px;
+}
+
+.footer__logo div p{
+    color: var(--blanco);
+    font-family: var(--principal);
+    font-size: 14px;
+    width: 100%;
+    text-align: start;
+    margin: 1px;
 }
 
 .footer__redes{
@@ -59,12 +73,12 @@
 }
 
 .footer__redes div a{
-    transform: scale(1.5);
+    transform: scale(1.4);
     color: var(--blanco);
     transition: all 400ms;
 }
 
 .footer__redes div a:hover{
-    transform: scale(1.7);
+    transform: scale(1.6);
     color: var(--dorado);
 }

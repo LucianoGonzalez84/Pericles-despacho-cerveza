@@ -1,8 +1,8 @@
 .containeritemlist{
     width: 90%;
-    height: 300px;
-    margin: 130px auto 0 auto;
-    
+    height: auto;
+    margin: 120px auto 50px auto;
+    position: relative;
 }
 
 .title{
