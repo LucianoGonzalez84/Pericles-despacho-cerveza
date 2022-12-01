@@ -83,9 +83,13 @@ function CartView() {
             <div className='btns'>
                 <Link to='/'><button className='btn'>Seguir comprando</button></Link>
                 <button className={cart.length === 0 ? 'btnnull' : 'btn'} onClick={cart.length === 0 ? null : () => clear()}>Vaciar carrito</button>
-                {/* <button className={cart.length === 0 ? 'btnnull' : 'btn'} onClick={cart.length === 0 ? null : () => createBuyOrder()}>Finalizar compra</button> */}
             </div>
-            <Form onSubmit={createBuyOrder}></Form>
+            {cart.length === 0 ?
+                <>
+                </>
+                :
+                <Form onSubmit={createBuyOrder}></Form>
+            }
         </div>
     )
 }
