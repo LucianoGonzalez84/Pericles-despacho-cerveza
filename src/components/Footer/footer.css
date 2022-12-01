@@ -42,7 +42,6 @@
 .footer__logo div{
     display: flex;
     flex-direction: column;
-    justify-content: start;
     height: 90px;
 }
 
